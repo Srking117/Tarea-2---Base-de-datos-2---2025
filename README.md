@@ -77,11 +77,11 @@ cp .env.example .env
 
 Editar .env con los valores de conexion a PostgreSQL (ejemplo):
 
-DATABASE_URL=postgresql+psycopg://postgres:1234@localhost:5432/biblioteca_db_sebastian_riveros_k_umag_2025_v2  
+DATABASE_URL=postgresql+psycopg://usuario:contraseña@localhost:5432/nombre_biblioteca  
 
 3. Crear base de datos en PostgreSQL
 
-createdb biblioteca_db_sebastian_riveros_k_umag_2025_v2
+createdb nombre_biblioteca
 
 4. Aplicar migraciones 
 
@@ -89,11 +89,11 @@ uv run alembic upgrade head
 
 5. Cargar datos iniciales
 
-psql -U postgres -d biblioteca_db_sebastian_riveros_k_umag_2025_v2 -f initial_data.sql
+psql -U postgres -d nombre_biblioteca -f initial_data.sql
 
 o en SQL Shell (psql) su equivalente
 
-\c biblioteca_db_sebastian_riveros_k_umag_2025_v2         "debe aparecer un mensaje de ahora estas conectado a biblioteca_db_sebastian_riveros_k_umag_2025_v2 "
+\c nombre_biblioteca        "debe aparecer un mensaje de ahora estas conectado a nombre_biblioteca "
    
    luego
 
