@@ -141,30 +141,6 @@ Tecnologias usadas
 - uv
 =============================================================
 
-============================================================
-EJEMPLOS DE ENDPOINTS
-============================================================
-Obtener libros disponibles
-
-GET /books/available
-
-Buscar por categoria
-
-GET /books/category/1
-
-Crear review
-
-POST /reviews
-
-Marcar prestamos vencidos
-
-GET /loans/overdue
-
-Devolver libro
-
-POST /loans/{id}/return
-
-============================================================
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⡤⠶⢛⡿⠟⠉⣁⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⡾⠉⠀⣴⡿⢖⡿⠿⠛⠉⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⢶⡟⠀⠀⠸⡫⠞⠛⠚⠉⠉⠙⠓⠲⢦⣄⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
