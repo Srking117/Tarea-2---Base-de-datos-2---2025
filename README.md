@@ -7,7 +7,7 @@ Umag
 2025
 
 Tarea 2 BD2 2025
-"Importante mencionar que por seguridad no mencione ninguna informacion real sobre mi usuario, contraseña y base de datos, no obstante tengo el respaldo con toda mi informacion real, en caso de ser solicitada"
+"Importante mencionar que por motivos de seguridad y buenas practicas, el repositorio no incluye credenciales reales solo ejemplos"
 ============================================================
 ⠀⠀⠀⠀⠀ ⠀⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀   ⠀⣀⡀⠀⠀⠀⠀⠀⠀
 ⠀⠀⣀⡴⠞⠉⢉⡿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢯⡉⠙⠳⣦⡀⠀⠀
