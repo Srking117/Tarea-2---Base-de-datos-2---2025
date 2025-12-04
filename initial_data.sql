@@ -1,69 +1,66 @@
+INSERT INTO categories (name, description) VALUES
+('Accion', 'Libros inspirados en mundos de accion y combate'),
+('Aventura', 'Historias epicas ambientadas en universos fantasticos'),
+('Ciencia Ficcion', 'Tecnologia avanzada, viajes espaciales y futuro distante'),
+('Fantasia Oscura', 'Reinos llenos de criaturas miticas y peligros mortales'),
+('Exploracion', 'Narrativas centradas en viajes, descubrimientos y misterios');
 
--- 1. Categorias
-INSERT INTO category (name, description)
+INSERT INTO books (title, author, isbn, pages, published_year, stock, description, language, publisher)
 VALUES
-('Ficcion', 'Universos narrativos imaginarios'),
-('No Ficcion', 'Registros y documentacion'),
-('Ciencia', 'Tecnologia y analisis de mundos'),
-('Historia', 'Cronologias y lore'),
-('Fantasia', 'Mundos epicos y criaturas');
+('Runas del Vacio', 'KaiSa', 'ISBN001', 320, 2019, 5, 'Una historia sobre el viaje de una cazadora contra criaturas del vacio', 'en', 'Shurima Press'),
+('Ecos de Zaun', 'Ekko', 'ISBN002', 210, 2018, 4, 'Un joven capaz de manipular el tiempo enfrenta su destino', 'en', 'Zaunite Books'),
+('Hijos del Anillo', 'Master Chief', 'ISBN003', 450, 2001, 6, 'La guerra contra el Covenant narrada desde el punto de vista humano', 'en', 'UNSC Publishing'),
+('Furia Espartana', 'Kratos', 'ISBN004', 380, 2017, 3, 'Relato de un guerrero marcado por la venganza y los dioses', 'en', 'Olympus House'),
+('Sombras de Hallownest', 'El Caballero', 'ISBN005', 290, 2017, 5, 'Aventuras en un reino olvidado lleno de insectos y secretos', 'en', 'Hallownest Press'),
+('Colmillos Carmesi', 'Arthur Morgan', 'ISBN006', 520, 2018, 7, 'Un forajido lucha contra el ocaso de su era', 'en', 'Western Frontier'),
+('Saltos en el Reino Champinon', 'Mario', 'ISBN007', 180, 1996, 8, 'Cronicas de aventuras contra criaturas y castillos', 'en', 'Mushroom Library'),
+('Sombras de Kanto', 'Red', 'ISBN008', 240, 1998, 5, 'Historias de entrenadores, criaturas y batallas legendarias', 'en', 'Kanto Editions'),
+('Llamas del Erdtree', 'Tarnished', 'ISBN009', 610, 2022, 2, 'Viajes por tierras fracturadas buscando gloria y poder', 'en', 'Lands Between Press'),
+('La Leyenda del Heroe Verde', 'Link', 'ISBN010', 330, 2006, 4, 'Un heroe destinado a proteger el reino del caos', 'en', 'Hyrule Publishing');
 
--- 2. Libros 
-INSERT INTO book (title, author, isbn, stock, description, language, publisher)
-VALUES
-('League of Legends Lore Definitivo', 'Riot Forge', 'ISBN-BD2-2025-1120', 5, 'Compendio del universo de Runaterra', 'es', 'Riot Publishing'),
-('Halo Cronicas del Jefe Maestro', '343 Industries', 'ISBN-BD2-2025-1125', 3, 'Historia del Jefe Maestro y la UNSC', 'en', 'UNSC Books'),
-('God of War Saga Nordica', 'Santa Monica Studio', 'ISBN-BD2-2025-1130', 4, 'Viaje de Kratos y Atreus en tierras nordicas', 'es', 'Midgard Press'),
-('Red Dead Redemption 2 Guia del Forajido', 'Rockstar Team', 'ISBN-BD2-2025-1135', 6, 'Cronicas de Arthur Morgan y la banda Van der Linde', 'en', 'Rockstar Books'),
-('Assassins Creed Hermandad y Secretos', 'Ubisoft Lore Team', 'ISBN-BD2-2025-1140', 2, 'Relatos sobre la Hermandad de los Asesinos', 'es', 'Abstergo Press'),
-('Super Mario Historia del Reino Champinon', 'Nintendo Archives', 'ISBN-BD2-2025-1145', 7, 'Evolucion del universo Mario', 'es', 'Nintendo Publishing'),
-('Pokemon Atlas de Regiones', 'Game Freak', 'ISBN-BD2-2025-1150', 5, 'Mapa completo desde Kanto hasta Paldea', 'en', 'PokePress'),
-('Hollow Knight Cartografia del Vacio', 'Team Cherry', 'ISBN-BD2-2025-1155', 4, 'Exploracion de Hallownest', 'es', 'Deepnest Books'),
-('Elden Ring Mitos de las Tierras Intermedias', 'FromSoftware', 'ISBN-BD2-2025-1160', 3, 'Lore de las Tierras Intermedias', 'en', 'Erdtree Press'),
-('Zelda Cronicas de Hyrule', 'Nintendo Legends', 'ISBN-BD2-2025-1165', 6, 'Leyendas de la saga Zelda', 'es', 'Hyrule Publishing');
+INSERT INTO book_categories (book_id, category_id) VALUES
+(1, 1), (1, 2),
+(2, 3),
+(3, 3),
+(4, 1),
+(5, 4),
+(6, 1),
+(7, 2),
+(8, 2),
+(9, 4),
+(10, 2);
 
--- 3. Relacion many-to-many 
-INSERT INTO book_categories (book_id, category_id)
-VALUES
-(1, 5), (2, 4), (3, 5), (4, 4), (5, 1),
-(6, 5), (7, 3), (8, 5), (9, 3), (10, 5);
+INSERT INTO users (email, full_name, password, is_active) VALUES
+('usuario1@example.com', 'Jugador Uno', '$argon2id$v=19$m=65536,t=3,p=4$testhash123', true),
+('usuario2@example.com', 'Explorador Legendario', '$argon2id$v=19$m=65536,t=3,p=4$testhash456', true),
+('usuario3@example.com', 'Cazador de Reinos', '$argon2id$v=19$m=65536,t=3,p=4$testhash789', true),
+('usuario4@example.com', 'Forajido Sin Nombre', '$argon2id$v=19$m=65536,t=3,p=4$testhashabc', true),
+('usuario5@example.com', 'Heroe Verde', '$argon2id$v=19$m=65536,t=3,p=4$testhashxyz', true);
 
--- 4. Usuarios "5 usuarios"
-INSERT INTO "user" (username, password, email, phone, address, is_active)
+INSERT INTO loans (loan_dt, due_date, return_dt, status, fine_amount, user_id, book_id)
 VALUES
-('kratos_user', '$argon2id$v=19$m=65536,t=3,p=4$kmT0YBpCjwBvJH35$LMQvL2WeM5KQ5PA3', 'kratos@example.com', '56911111111', 'Midgard 123', TRUE),
-('cortana_ai', '$argon2id$v=19$m=65536,t=3,p=4$aSYj02nYqJz3dUw8$JH3A7pdJ9kS7P2Xc', 'cortana@example.com', '56922222222', 'UNSC Base', TRUE),
-('link_hero', '$argon2id$v=19$m=65536,t=3,p=4$zFf92fT6YB4mLtQ9$1VqU0w7K5yxz6HYa', 'link@example.com', '56933333333', 'Kokiri Forest', TRUE),
-('arthur_cowboy', '$argon2id$v=19$m=65536,t=3,p=4$NWYw8eB9KVbr2tS3$8D8PAzjx4iaqvvOe', 'arthur@example.com', '56944444444', 'Valentine Town', TRUE),
-('mario_plumber', '$argon2id$v=19$m=65536,t=3,p=4$dSDRwlA8Jwtmz28y$6OEakUFQFSoYkZcC', 'mario@example.com', '56955555555', 'Mushroom Kingdom', TRUE);
+(NOW() - INTERVAL '20 days', NOW() - INTERVAL '6 days', NULL, 'overdue', 0, 1, 1),
+(NOW() - INTERVAL '2 days',  NOW() + INTERVAL '12 days', NULL, 'borrowed', 0, 2, 3),
+(NOW() - INTERVAL '14 days', NOW() - INTERVAL '1 days', NOW(), 'returned', 0, 3, 5),
+(NOW() - INTERVAL '7 days',  NOW() + INTERVAL '7 days', NULL, 'borrowed', 0, 4, 6),
+(NOW() - INTERVAL '30 days', NOW() - INTERVAL '16 days', NULL, 'overdue', 0, 1, 4),
+(NOW() - INTERVAL '10 days', NOW() + INTERVAL '4 days', NULL, 'borrowed', 0, 5, 2),
+(NOW() - INTERVAL '1 days',  NOW() + INTERVAL '13 days', NULL, 'borrowed', 0, 3, 7),
+(NOW() - INTERVAL '3 days',  NOW() + INTERVAL '11 days', NULL, 'borrowed', 0, 4, 8);
 
--- 5. Prestamos "8 registros"
-INSERT INTO loan (user_id, book_id, loan_dt, return_dt, due_date, status, fine_amount)
-VALUES
-(1, 1, NOW() - INTERVAL '20 days', NULL, NOW() - INTERVAL '6 days', 'OVERDUE', NULL),
-(2, 2, NOW() - INTERVAL '10 days', NULL, NOW() + INTERVAL '4 days', 'ACTIVE', NULL),
-(3, 3, NOW() - INTERVAL '5 days',  NULL, NOW() + INTERVAL '9 days', 'ACTIVE', NULL),
-(4, 4, NOW() - INTERVAL '30 days', NULL, NOW() - INTERVAL '16 days', 'OVERDUE', NULL),
-(5, 5, NOW() - INTERVAL '3 days',  NULL, NOW() + INTERVAL '11 days', 'ACTIVE', NULL),
-(1, 6, NOW() - INTERVAL '14 days', NULL, NOW() + INTERVAL '0 days', 'ACTIVE', NULL),
-(2, 7, NOW() - INTERVAL '1 days',  NULL, NOW() + INTERVAL '13 days', 'ACTIVE', NULL),
-(3, 8, NOW() - INTERVAL '40 days', NULL, NOW() - INTERVAL '26 days', 'OVERDUE', NULL);
-
--- 6. Reviews "15 en total"
-INSERT INTO review (rating, comment, user_id, book_id)
-VALUES
-(5, 'Excelente libro del universo de LOL', 1, 1),
-(4, 'Muy bueno, gran narrativa', 2, 2),
-(5, 'Kratos siempre epico', 3, 3),
-(3, 'Buen contenido pero algo largo', 4, 4),
-(5, 'Para fanaticos de la saga AC', 5, 5),
-(4, 'Mario siempre es divertido', 1, 6),
-(5, 'Pokemon con gran detalle de regiones', 2, 7),
-(5, 'Hollow Knight obra maestra', 3, 8),
-(4, 'Lore profundo de Elden Ring', 4, 9),
-(5, 'Zelda increible como siempre', 5, 10),
-(4, 'Runaterra fascinante', 1, 1),
-(3, 'Halo interesante pero tecnico', 2, 2),
-(5, 'Saga Nordica increible', 3, 3),
-(4, 'Forajidos bien narrados', 4, 4),
-(5, 'Atlas con gran detalle', 5, 7);
+INSERT INTO reviews (rating, comment, review_date, user_id, book_id) VALUES
+(5, 'Una obra increible', NOW(), 1, 1),
+(4, 'Muy bueno', NOW(), 2, 1),
+(3, 'Entretenido', NOW(), 3, 1),
+(5, 'Ecos interesantes', NOW(), 2, 2),
+(4, 'Gran historia', NOW(), 1, 2),
+(5, 'Obra maestra del anillo', NOW(), 3, 3),
+(4, 'Excelente narrativa', NOW(), 4, 3),
+(5, 'Kratos supremo', NOW(), 5, 4),
+(3, 'Bueno pero corto', NOW(), 2, 4),
+(4, 'Atmosfera unica', NOW(), 1, 5),
+(5, 'Magnifico', NOW(), 3, 5),
+(5, 'Historia poderosa', NOW(), 1, 6),
+(4, 'Buen ritmo', NOW(), 4, 7),
+(5, 'Kanto legendario', NOW(), 5, 8),
+(5, 'Heroe verde epico', NOW(), 3, 10);
