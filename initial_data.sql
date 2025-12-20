@@ -1,66 +1,70 @@
-INSERT INTO categories (name, description) VALUES
-('Accion', 'Libros inspirados en mundos de accion y combate'),
-('Aventura', 'Historias epicas ambientadas en universos fantasticos'),
-('Ciencia Ficcion', 'Tecnologia avanzada, viajes espaciales y futuro distante'),
-('Fantasia Oscura', 'Reinos llenos de criaturas miticas y peligros mortales'),
-('Exploracion', 'Narrativas centradas en viajes, descubrimientos y misterios');
 
-INSERT INTO books (title, author, isbn, pages, published_year, stock, description, language, publisher)
-VALUES
-('Runas del Vacio', 'KaiSa', 'ISBN001', 320, 2019, 5, 'Una historia sobre el viaje de una cazadora contra criaturas del vacio', 'en', 'Shurima Press'),
-('Ecos de Zaun', 'Ekko', 'ISBN002', 210, 2018, 4, 'Un joven capaz de manipular el tiempo enfrenta su destino', 'en', 'Zaunite Books'),
-('Hijos del Anillo', 'Master Chief', 'ISBN003', 450, 2001, 6, 'La guerra contra el Covenant narrada desde el punto de vista humano', 'en', 'UNSC Publishing'),
-('Furia Espartana', 'Kratos', 'ISBN004', 380, 2017, 3, 'Relato de un guerrero marcado por la venganza y los dioses', 'en', 'Olympus House'),
-('Sombras de Hallownest', 'El Caballero', 'ISBN005', 290, 2017, 5, 'Aventuras en un reino olvidado lleno de insectos y secretos', 'en', 'Hallownest Press'),
-('Colmillos Carmesi', 'Arthur Morgan', 'ISBN006', 520, 2018, 7, 'Un forajido lucha contra el ocaso de su era', 'en', 'Western Frontier'),
-('Saltos en el Reino Champinon', 'Mario', 'ISBN007', 180, 1996, 8, 'Cronicas de aventuras contra criaturas y castillos', 'en', 'Mushroom Library'),
-('Sombras de Kanto', 'Red', 'ISBN008', 240, 1998, 5, 'Historias de entrenadores, criaturas y batallas legendarias', 'en', 'Kanto Editions'),
-('Llamas del Erdtree', 'Tarnished', 'ISBN009', 610, 2022, 2, 'Viajes por tierras fracturadas buscando gloria y poder', 'en', 'Lands Between Press'),
-('La Leyenda del Heroe Verde', 'Link', 'ISBN010', 330, 2006, 4, 'Un heroe destinado a proteger el reino del caos', 'en', 'Hyrule Publishing');
+INSERT INTO category (id, name, description) VALUES
+(1, 'Ficción', 'Narrativas ficticias'),
+(2, 'No Ficción', 'Libros basados en hechos reales'),
+(3, 'Ciencia', 'Libros científicos y divulgativos'),
+(4, 'Historia', 'Libros históricos'),
+(5, 'Fantasía', 'Mundos y relatos fantásticos');
+
+
+INSERT INTO book (id, title, author, isbn, stock, description, language, publisher) VALUES
+(1, 'The Witcher', 'Andrzej Sapkowski', 'ISBN-BD2-2025-1120', 3, 'Fantasy RPG saga', 'en', 'Orbit'),
+(2, 'Metro 2033', 'Dmitry Glukhovsky', 'ISBN-BD2-2025-1125', 2, 'Post-apocalyptic novel', 'en', 'Gollancz'),
+(3, 'Dune', 'Frank Herbert', 'ISBN-BD2-2025-1130', 4, 'Sci-fi classic', 'en', 'Ace'),
+(4, 'Halo: The Fall of Reach', 'Eric Nylund', 'ISBN-BD2-2025-1135', 1, 'Halo universe origin', 'en', 'Tor'),
+(5, 'World War Z', 'Max Brooks', 'ISBN-BD2-2025-1140', 2, 'Zombie apocalypse chronicle', 'en', 'Broadway'),
+(6, 'Foundation', 'Isaac Asimov', 'ISBN-BD2-2025-1145', 5, 'Galactic empire saga', 'en', 'Spectra'),
+(7, 'The Art of War', 'Sun Tzu', 'ISBN-BD2-2025-1150', 3, 'Military strategy classic', 'en', 'Oxford'),
+(8, 'Sapiens', 'Yuval Noah Harari', 'ISBN-BD2-2025-1155', 4, 'Human history analysis', 'en', 'Harper'),
+(9, 'Dark Souls Design Works', 'FromSoftware', 'ISBN-BD2-2025-1160', 1, 'Game art and lore', 'en', 'UDON'),
+(10, 'Skyrim Library', 'Bethesda', 'ISBN-BD2-2025-1165', 2, 'Elder Scrolls lore', 'en', 'Titan');
+
 
 INSERT INTO book_categories (book_id, category_id) VALUES
-(1, 1), (1, 2),
-(2, 3),
+(1, 5),
+(2, 1),
 (3, 3),
-(4, 1),
-(5, 4),
-(6, 1),
-(7, 2),
-(8, 2),
-(9, 4),
-(10, 2);
+(4, 5),
+(5, 1),
+(6, 3),
+(7, 4),
+(8, 4),
+(9, 5),
+(10, 5);
 
-INSERT INTO users (email, full_name, password, is_active) VALUES
-('usuario1@example.com', 'Jugador Uno', '$argon2id$v=19$m=65536,t=3,p=4$testhash123', true),
-('usuario2@example.com', 'Explorador Legendario', '$argon2id$v=19$m=65536,t=3,p=4$testhash456', true),
-('usuario3@example.com', 'Cazador de Reinos', '$argon2id$v=19$m=65536,t=3,p=4$testhash789', true),
-('usuario4@example.com', 'Forajido Sin Nombre', '$argon2id$v=19$m=65536,t=3,p=4$testhashabc', true),
-('usuario5@example.com', 'Heroe Verde', '$argon2id$v=19$m=65536,t=3,p=4$testhashxyz', true);
 
-INSERT INTO loans (loan_dt, due_date, return_dt, status, fine_amount, user_id, book_id)
-VALUES
-(NOW() - INTERVAL '20 days', NOW() - INTERVAL '6 days', NULL, 'overdue', 0, 1, 1),
-(NOW() - INTERVAL '2 days',  NOW() + INTERVAL '12 days', NULL, 'borrowed', 0, 2, 3),
-(NOW() - INTERVAL '14 days', NOW() - INTERVAL '1 days', NOW(), 'returned', 0, 3, 5),
-(NOW() - INTERVAL '7 days',  NOW() + INTERVAL '7 days', NULL, 'borrowed', 0, 4, 6),
-(NOW() - INTERVAL '30 days', NOW() - INTERVAL '16 days', NULL, 'overdue', 0, 1, 4),
-(NOW() - INTERVAL '10 days', NOW() + INTERVAL '4 days', NULL, 'borrowed', 0, 5, 2),
-(NOW() - INTERVAL '1 days',  NOW() + INTERVAL '13 days', NULL, 'borrowed', 0, 3, 7),
-(NOW() - INTERVAL '3 days',  NOW() + INTERVAL '11 days', NULL, 'borrowed', 0, 4, 8);
+INSERT INTO "user" (id, name, email, phone, address, password, is_active) VALUES
+(1, 'Mario', 'mario@mail.com', '111111111', 'Chile', '$argon2id$v=19$m=65536,t=3,p=4$example$hash', TRUE),
+(2, 'Luigi', 'luigi@mail.com', '222222222', 'Chile', '$argon2id$v=19$m=65536,t=3,p=4$example$hash', TRUE),
+(3, 'Peach', 'peach@mail.com', '333333333', 'Chile', '$argon2id$v=19$m=65536,t=3,p=4$example$hash', TRUE),
+(4, 'Link', 'link@mail.com', '444444444', 'Chile', '$argon2id$v=19$m=65536,t=3,p=4$example$hash', TRUE),
+(5, 'Zelda', 'zelda@mail.com', '555555555', 'Chile', '$argon2id$v=19$m=65536,t=3,p=4$example$hash', TRUE);
 
-INSERT INTO reviews (rating, comment, review_date, user_id, book_id) VALUES
-(5, 'Una obra increible', NOW(), 1, 1),
-(4, 'Muy bueno', NOW(), 2, 1),
-(3, 'Entretenido', NOW(), 3, 1),
-(5, 'Ecos interesantes', NOW(), 2, 2),
-(4, 'Gran historia', NOW(), 1, 2),
-(5, 'Obra maestra del anillo', NOW(), 3, 3),
-(4, 'Excelente narrativa', NOW(), 4, 3),
-(5, 'Kratos supremo', NOW(), 5, 4),
-(3, 'Bueno pero corto', NOW(), 2, 4),
-(4, 'Atmosfera unica', NOW(), 1, 5),
-(5, 'Magnifico', NOW(), 3, 5),
-(5, 'Historia poderosa', NOW(), 1, 6),
-(4, 'Buen ritmo', NOW(), 4, 7),
-(5, 'Kanto legendario', NOW(), 5, 8),
-(5, 'Heroe verde epico', NOW(), 3, 10);
+
+INSERT INTO loan (id, user_id, book_id, loan_dt, due_date, return_dt, fine_amount, status) VALUES
+(1, 1, 1, '2025-01-01', '2025-01-15', NULL, NULL, 'ACTIVE'),
+(2, 2, 2, '2025-01-02', '2025-01-16', '2025-01-14', NULL, 'RETURNED'),
+(3, 3, 3, '2025-01-03', '2025-01-17', NULL, 5000, 'OVERDUE'),
+(4, 4, 4, '2025-01-04', '2025-01-18', '2025-01-18', NULL, 'RETURNED'),
+(5, 5, 5, '2025-01-05', '2025-01-19', NULL, 10000, 'OVERDUE'),
+(6, 1, 6, '2025-01-06', '2025-01-20', NULL, NULL, 'ACTIVE'),
+(7, 2, 7, '2025-01-07', '2025-01-21', '2025-01-20', NULL, 'RETURNED'),
+(8, 3, 8, '2025-01-08', '2025-01-22', NULL, NULL, 'ACTIVE');
+
+
+INSERT INTO review (id, rating, comment, review_date, user_id, book_id) VALUES
+(1, 5, 'Excelente libro', '2025-01-10', 1, 1),
+(2, 4, 'Muy bueno', '2025-01-10', 2, 1),
+(3, 3, 'Aceptable', '2025-01-10', 3, 1),
+(4, 5, 'Obra maestra', '2025-01-11', 1, 2),
+(5, 4, 'Entretenido', '2025-01-11', 2, 2),
+(6, 5, 'Increíble', '2025-01-12', 3, 3),
+(7, 4, 'Muy bueno', '2025-01-12', 4, 3),
+(8, 5, 'Clásico', '2025-01-13', 5, 4),
+(9, 3, 'Bueno', '2025-01-13', 1, 5),
+(10, 4, 'Interesante', '2025-01-14', 2, 6),
+(11, 5, 'Excelente', '2025-01-14', 3, 7),
+(12, 4, 'Recomendado', '2025-01-15', 4, 8),
+(13, 5, 'Arte puro', '2025-01-15', 5, 9),
+(14, 4, 'Buen lore', '2025-01-16', 1, 10),
+(15, 5, 'Fantástico', '2025-01-16', 2, 10);
