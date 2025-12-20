@@ -49,16 +49,12 @@ integrandolo en el initial_data.sql inspirado en League of legends, Halo, God of
 
 app/
  ├─ controllers/
- │   ├─ auth_controller.py
- │   ├─ book_controller.py
- │   ├─ category_controller.py
- │   ├─ loan_controller.py
- │   └─ review_controller.py
  ├─ dtos/
  ├─ repositories/
- ├─ models.py
+ ├─ __init__.py
  ├─ config.py
  ├─ db.py
+ ├─ models.py
  └─ security.py
 migrations/
 initial_data.sql
